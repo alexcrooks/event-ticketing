@@ -1,0 +1,12 @@
+{
+  "name": "event-ticketing-portal",
+  "version": "0.0.1",
+  "description": "The front-end for a simple, quick, event ticketing system",
+  "homepage": "https://github.com/alexcrooks/event-ticketing/portal",
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "angular-loader": "~1.4.0",
+    "angular-mocks": "~1.4.0"
+  }
+}

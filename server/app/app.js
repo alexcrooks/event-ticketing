@@ -46,6 +46,7 @@ app.use(function (err, req, res, next) {
  * Routes
  */
 app.use(require('./routes/base'));
+app.use(require('./routes/event'));
 
 process.on('SIGINT', function () {
   process.exit(0);

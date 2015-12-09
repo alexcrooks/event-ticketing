@@ -22,6 +22,16 @@ app.use(cors());
 app.use(bodyParser.json({type: 'application/json'}));
 
 /**
+ * Fake user for use in API
+ *
+ * TODO (stub for future implementation)
+ */
+app.use(function (req, res, next) {
+  req.user = {id: 1};
+  next();
+});
+
+/**
  * On error, log it and return a suitable status code.
  */
 app.use(function (err, req, res, next) {

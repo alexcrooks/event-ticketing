@@ -2,6 +2,7 @@
 
   function EventSingleCtrl($scope, $routeParams, $location, UserService, EventService) {
     var loaded = false;
+    var ticketPurchaseForm;
     var event;
 
     /**
@@ -52,6 +53,28 @@
     }
 
     /**
+     * @returns {boolean}
+     */
+    function isTicketPurchaseFormOpen() {
+      return ticketPurchaseForm && ticketPurchaseForm.isOpen();
+    }
+
+    /**
+     * Open the form to purchase a ticket.
+     */
+    function openTicketPurchaseForm() {
+      ticketPurchaseForm && ticketPurchaseForm.open();
+    }
+
+    /**
+     * @param {EventTicketPurchaseFormCtrl}
+     */
+    function setTicketPurchaseForm(form) {
+      ticketPurchaseForm = form;
+      form.init({event: event});
+    }
+
+    /**
      * Load an event by id.
      */
     EventService.get($routeParams.id, function (err, result) {
@@ -59,10 +82,13 @@
       loaded = true;
     });
 
-    $scope.canManageEvent = canManageEvent;
-    $scope.cancelEvent    = cancelEvent;
-    $scope.isLoaded       = isLoaded;
-    $scope.getEvent       = getEvent;
+    $scope.canManageEvent           = canManageEvent;
+    $scope.cancelEvent              = cancelEvent;
+    $scope.isLoaded                 = isLoaded;
+    $scope.getEvent                 = getEvent;
+    $scope.isTicketPurchaseFormOpen = isTicketPurchaseFormOpen;
+    $scope.openTicketPurchaseForm   = openTicketPurchaseForm;
+    $scope.setTicketPurchaseForm    = setTicketPurchaseForm;
   }
 
   App.app.controller('EventSingleCtrl', ['$scope', '$routeParams', '$location', 'UserService', 'EventService', EventSingleCtrl]);

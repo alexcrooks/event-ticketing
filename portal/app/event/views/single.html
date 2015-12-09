@@ -4,11 +4,16 @@
     <div class="jumbotron">
       <h1>{{event.title()}}</h1>
       <p>{{event.description()}}</p>
-
-      <div ng-if="canManageEvent(event)">
-        <a href="#/event/{{event.id()}}/manage" class="btn btn-lg btn-default">Edit</a>
-        <button class="btn btn-lg btn-danger" ng-click="cancelEvent(event)">Cancel Event</button>
+      
+      <div ng-if="!isTicketPurchaseFormOpen()">
+        <button class="btn btn-lg btn-primary" ng-click="openTicketPurchaseForm()">Buy Tickets</button>
+        <div ng-if="canManageEvent(event)">
+          <a href="#/event/{{event.id()}}/manage" class="btn btn-lg btn-default">Edit</a>
+          <button class="btn btn-lg btn-danger" ng-click="cancelEvent(event)">Cancel Event</button>
+        </div>
       </div>
+
+      <div event-ticket-purchase-form ng-init="setTicketPurchaseForm(form)"></div>
     </div>
 
     <div>

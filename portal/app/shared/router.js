@@ -36,6 +36,10 @@
       template:   'event/views/manage.html',
       controller: 'EventManageCtrl',
     },
+    {
+      route:      '/event/:id/tickets-purchased',
+      template:   'event/views/tickets-purchased.html',
+    },
   ];
 
   /**

@@ -27,4 +27,21 @@
     };
   });
 
+  App.app.directive('eventTicketPurchaseForm', function () {
+    return {
+      restrict:    'A',
+      replace:     true,
+      controller:  'EventTicketPurchaseFormCtrl',
+      templateUrl: 'event/views/ticket-purchase-form.html',
+    };
+  });
+
+  App.app.directive('eventTicketsPurchased', function () {
+    return {
+      restrict:    'A',
+      replace:     true,
+      templateUrl: 'event/views/tickets-purchased.html',
+    };
+  });
+
 })();

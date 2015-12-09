@@ -17,6 +17,11 @@
       controller: 'LoginCtrl',
     },
     {
+      route:      '/logout',
+      template:   'base/views/login.html',
+      controller: 'LoginCtrl',
+    },
+    {
       route:      '/events',
       template:   'event/views/list.html',
       controller: 'EventListCtrl',

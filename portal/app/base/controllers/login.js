@@ -6,6 +6,12 @@
    */
 
   function LoginCtrl($scope, $location, UserService) {
+    if ($location.path().match(/logout/)) {
+      return UserService.logout(function () {
+        $location.path('/');
+      })
+    }
+
     function login() {
       UserService.login('foo', 'bar', function (err, user) {
         if (err) return;

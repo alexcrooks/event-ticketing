@@ -31,6 +31,13 @@
         return !UserService.isLoggedIn();
       },
     },
+    {
+      path: '/logout',
+      label: 'Logout',
+      auth: function (UserService) {
+        return UserService.isLoggedIn();
+      },
+    },
   ];
 
   function HeaderCtrl($scope, $location, UserService) {

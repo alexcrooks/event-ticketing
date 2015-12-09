@@ -25,10 +25,16 @@
       callback(null, currentUser);
     }
 
+    function logout(callback) {
+      currentUser = null;
+      callback();
+    }
+
     return {
       isLoggedIn:     isLoggedIn,
       currentUserId:  currentUserId,
       login:          login,
+      logout:         logout,
     };
   }
 

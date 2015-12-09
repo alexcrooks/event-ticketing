@@ -17,6 +17,13 @@
       label: 'Events',
       auth: _.constant(true),
     },
+    {
+      path: '/login',
+      label: 'Login',
+      auth: function (UserService) {
+        return !UserService.isLoggedIn();
+      },
+    },
   ];
 
   function HeaderCtrl($scope, $location, UserService) {

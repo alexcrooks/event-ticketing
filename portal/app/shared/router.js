@@ -11,6 +11,11 @@
       template:   'event/views/list.html',
       controller: 'EventListCtrl',
     },
+    {
+      route:      '/login',
+      template:   'base/views/login.html',
+      controller: 'LoginCtrl',
+    },
   ];
 
   /**

@@ -7,5 +7,9 @@
     "body-parser": "^1.14.1",
     "orm": "^2.1.29",
     "cors": "^2.7.1"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.3.4"
   }
 }

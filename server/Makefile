@@ -1,9 +1,12 @@
-default: install server
+default: install unit
 
 install:
 	npm install
 
+unit:
+	mocha --recursive test/
+
 server:
 	./bin/www
 
-.PHONY: default install server
+.PHONY: default install unit server

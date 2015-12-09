@@ -20,6 +20,27 @@ var schema = {
   deletedAt:         {type: 'date', time: true, mapsTo: 'deleted_at'},
 };
 
+var methods = {
+  /**
+   * How many tickets are remaining to be sold?
+   *
+   * @returns {number}
+   */
+  quantityRemaining: function () {
+    return this.quantity - this.quantityPurchased;
+  },
+
+  /**
+   * Can this number of tickets be sold for this ticket type?
+   *
+   * @param {number} quantity
+   * @returns {boolean}
+   */
+  canPurchase: function (quantity) {
+    return this.quantityRemaining() >= quantity;
+  },
+};
+
 var hooks = {
   beforeCreate: function (next) {
     this.createdAt = new Date();
@@ -33,5 +54,5 @@ var hooks = {
 };
 
 module.exports = function (db) {
-  return db.define('ticket_type', schema, {hooks: hooks});
+  return db.define('ticket_type', schema, {methods: methods, hooks: hooks});
 };

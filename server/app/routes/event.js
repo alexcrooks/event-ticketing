@@ -90,6 +90,8 @@ router.put('/events/:eventId', function (req, res, next) {
 
 /**
  * Cancel an event.
+ *
+ * TODO: Do not let this be cancelled if tickets have been purchased
  */
 router.delete('/events/:eventId', function (req, res, next) {
   req.event.cancelledAt = new Date();
@@ -98,6 +100,49 @@ router.delete('/events/:eventId', function (req, res, next) {
     return res.sendStatus(200);
   });
 });
+
+/**
+ * Purchase a set of tickets.
+ *
+ * TODO: Validate against a particular ticket type being sold out.
+ *
+ * TODO: Wrap in transaction so if any part fails we can fall back easily.
+ *
+ * TODO: Make this work with payment logic.
+ */
+router.post('/events/:eventId/purchaseTickets', function (req, res, next) {
+  async.each(req.body.ticketTypes, purchaseTicketType.bind(this, req.event), function (err) {
+    if (err) return next(err);
+    return res.sendStatus(200);
+  });
+});
+
+/**
+ * Purchase a quantity of a ticket type.
+ *
+ * @param {Event} event
+ * @param {object} data Object with an ID and quantity property.
+ * @param {function} callback
+ */
+function purchaseTicketType(event, data, callback) {
+  var ticketType = _.findWhere(event.ticketTypes, {id: data.id});
+  if (!_.isNumber(data.id)) {
+    // TODO: make this return HTTP 400 in the API
+    return callback(new Error('Invalid ticket type ID'));
+  }
+  if (!_.isNumber(data.quantity)) {
+    // TODO: make this return HTTP 400 in the API
+    return callback(new Error('Invalid quantity'));
+  } else if (!ticketType) {
+    // TODO: make this return HTTP 404 in the API
+    return callback(new Error('Ticket type not found'));
+  } else if (!ticketType.canPurchase(data.quantity)) {
+    // TODO: make this return HTTP 400 in the API
+    return callback(new Error('Only ' + ticketType.quantityRemaining() + ' tickets remaining'));
+  }
+  ticketType.quantityPurchased += data.quantity;
+  ticketType.save(callback);
+}
 
 /**
  * Create a new event given an object.

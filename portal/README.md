@@ -27,3 +27,17 @@ and `bower` if using the supported npm scripts (such as `npm start` and
 ## End-to-End Testing
 
 `npm protractor` to run end-to-end tests
+
+## Todo
+
+- User authentication
+- Roles/permissions
+- Payment integration
+- Build management (e.g., Grunt/Gulp build scripts w/ minification)
+- Continuous integration
+- Search/filtering on event list
+- Infinite scroll or pagination on event list
+- Email on purchase ticket
+- Named routes
+- Split components into Angular modules
+- Validation

@@ -8,7 +8,7 @@ App = {};
   ]);
 
   App.app.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/'});
+    App.router.init($routeProvider);
   }]);
 
 })(App);

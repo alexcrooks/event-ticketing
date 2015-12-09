@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+'use strict';
+process.env.TZ = 'UTC';
+
+var app = require('../app/app');
+var config = require('../app/config');
+
+app.listen(config.port, function () {
+    console.log('Server listening on port %d', config.port);
+});

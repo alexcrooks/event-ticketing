@@ -1,0 +1,11 @@
+{
+  "name": "event-ticketing-server",
+  "author": "Alexander Crooks <alex@alexcrooks.com>",
+  "dependencies": {
+    "express": "^4.13.3",
+    "pg": "^4.4.3",
+    "body-parser": "^1.14.1",
+    "orm": "^2.1.29",
+    "cors": "^2.7.1"
+  }
+}

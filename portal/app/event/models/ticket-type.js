@@ -57,6 +57,7 @@ EventTicketTypes = {};
   var serializers = {
     buildForForm: function () {
       return {
+        id:          this.id(),
         description: this.description(),
         cost:        this.cost(),
         quantity:    this.quantity(),

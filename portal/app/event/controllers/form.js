@@ -65,6 +65,7 @@
 
     function transformTicketType(ticketType) {
       return {
+        id:          ticketType.id,
         description: ticketType.description,
         cost:        ticketType.cost,
         quantity:    ticketType.quantity,

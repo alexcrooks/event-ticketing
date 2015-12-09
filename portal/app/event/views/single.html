@@ -3,7 +3,7 @@
   <div ng-if="isLoaded()" ng-init="event = getEvent()">
     <div class="jumbotron">
       <h1>{{event.title()}}</h1>
-      <p>{{event.description()}}</p>
+      <p class="preformatted-text">{{event.description()}}</p>
       
       <div ng-if="!isTicketPurchaseFormOpen()">
         <button class="btn btn-lg btn-primary" ng-click="openTicketPurchaseForm()">Buy Tickets</button>
@@ -21,22 +21,22 @@
 
       <div>
         <label>Location</label>
-        {{event.location()}}
+        <p class="preformatted-text">{{event.location()}}</p>
       </div>
 
       <div>
         <label>Doors</label>
-        {{event.doorsAt() | prettyDate}}
+        <p>{{event.doorsAt() | prettyDate}}</p>
       </div>
 
       <div>
         <label>Starts</label>
-        {{event.startsAt() | prettyDate}}
+        <p>{{event.startsAt() | prettyDate}}</p>
       </div>
 
       <div>
         <label>Ends</label>
-        {{event.endsAt() | prettyDate}}
+        <p>{{event.endsAt() | prettyDate}}</p>
       </div>
     </div>
 
@@ -45,8 +45,7 @@
 
       <div ng-repeat="ticketType in event.ticketTypes()">
         <label>{{ticketType.description()}} ({{ticketType.quantityRemaining()}} tickets left)</label>
-
-        {{ticketType.cost() | currency:'$'}}
+        <p>{{ticketType.cost() | currency:'$'}} each</p>
       </div>
     </div>
   </div>

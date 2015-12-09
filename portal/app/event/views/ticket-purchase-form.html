@@ -1,29 +1,22 @@
 <div ng-controller="EventTicketPurchaseFormCtrl">
   <div class="row">
-    <form name="eventTicketPurchaseForm" class="col-md-6" ng-submit="form.save()" ng-if="form.isOpen()">
-      <div class="row" ng-repeat="ticketType in form.data.ticketTypes">
-        <div class="form-group col-xs-6">
-          <label>{{ticketType.description}} ({{ticketType.cost | currency:'$'}} each)</label>
+    <form name="eventTicketPurchaseForm" class="col-lg-4 col-md-6 col-sm-8" ng-submit="form.save()" ng-if="form.isOpen()">
+      <div class="form-group" ng-repeat="ticketType in form.data.ticketTypes">
+        <label>{{ticketType.description}} ({{ticketType.cost | currency:'$'}} each)</label>
+        <div class="input-group">
           <input name="ticketTypeQuantity{{$index}}" type="number" min="0" max="{{ticketType.quantityRemaining}}" class="form-control" placeholder="Quantity" ng-model="ticketType.quantity">
-        </div>
-
-        <div class="col-xs-6">
-          {{form.calculateTicketTypeTotal(ticketType) | currency:'$'}}
+          <span class="input-group-addon">{{form.calculateTicketTypeTotal(ticketType) | currency:'$'}}</span>
         </div>
       </div>
 
-      <div class="row">
-        <div class="form-group col-xs-12">
-          <label class="hidden-xs">Email Address</label>
-          <input name="emailAddress" type="text" class="form-control" placeholder="Email Address">
-        </div>
+      <div class="form-group">
+        <label class="hidden-xs">Email Address</label>
+        <input name="emailAddress" type="text" class="form-control" placeholder="Email Address">
       </div>
 
-      <div class="row">
-        <div class="form-group col-xs-12">
-          <label class="hidden-xs">Credit Card Number</label>
-          <input name="creditCardNumber" type="text" class="form-control" placeholder="Credit Card Number">
-        </div>
+      <div class="form-group">
+        <label class="hidden-xs">Credit Card Number</label>
+        <input name="creditCardNumber" type="text" class="form-control" placeholder="Credit Card Number">
       </div>
 
       <div class="row">

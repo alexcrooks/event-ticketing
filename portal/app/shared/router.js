@@ -16,6 +16,26 @@
       template:   'base/views/login.html',
       controller: 'LoginCtrl',
     },
+    {
+      route:      '/events',
+      template:   'event/views/list.html',
+      controller: 'EventListCtrl',
+    },
+    {
+      route:      '/event/:id',
+      template:   'event/views/single.html',
+      controller: 'EventSingleCtrl',
+    },
+    {
+      route:      '/event',
+      template:   'event/views/manage.html',
+      controller: 'EventManageCtrl',
+    },
+    {
+      route:      '/event/:id/manage',
+      template:   'event/views/manage.html',
+      controller: 'EventManageCtrl',
+    },
   ];
 
   /**

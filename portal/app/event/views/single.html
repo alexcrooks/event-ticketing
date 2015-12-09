@@ -1,0 +1,49 @@
+<div class="container">
+
+  <div ng-if="isLoaded()" ng-init="event = getEvent()">
+    <div class="jumbotron">
+      <h1>{{event.title()}}</h1>
+      <p>{{event.description()}}</p>
+
+      <div ng-if="canManageEvent(event)">
+        <a href="#/event/{{event.id()}}/manage" class="btn btn-lg btn-default">Edit</a>
+        <button class="btn btn-lg btn-danger" ng-click="cancelEvent(event)">Cancel Event</button>
+      </div>
+    </div>
+
+    <div>
+      <h4>Event Information</h4>
+
+      <div>
+        <label>Location</label>
+        {{event.location()}}
+      </div>
+
+      <div>
+        <label>Doors</label>
+        {{event.doorsAt() | prettyDate}}
+      </div>
+
+      <div>
+        <label>Starts</label>
+        {{event.startsAt() | prettyDate}}
+      </div>
+
+      <div>
+        <label>Ends</label>
+        {{event.endsAt() | prettyDate}}
+      </div>
+    </div>
+
+    <div>
+      <h4>Tickets</h4>
+
+      <div ng-repeat="ticketType in event.ticketTypes()">
+        <label>{{ticketType.description()}} ({{ticketType.quantityRemaining()}} tickets left)</label>
+
+        {{ticketType.cost() | currency:'$'}}
+      </div>
+    </div>
+  </div>
+
+</div>

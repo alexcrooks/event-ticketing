@@ -54,9 +54,20 @@ EventTicketTypes = {};
     },
   };
 
+  var serializers = {
+    buildForForm: function () {
+      return {
+        description: this.description(),
+        cost:        this.cost(),
+        quantity:    this.quantity(),
+      };
+    },
+  };
+
   EventTicketTypes.prototype = _.extend(
     EventTicketTypes.prototype,
-    getters
+    getters,
+    serializers
   );
 
 })();

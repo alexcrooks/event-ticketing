@@ -6,6 +6,7 @@ App = {};
   App.app = angular.module('event-ticketing-portal', [
     'ngRoute',
     'ngResource',
+    'ui.bootstrap.datetimepicker',
   ]);
 
   App.app.config(['$routeProvider', function ($routeProvider) {

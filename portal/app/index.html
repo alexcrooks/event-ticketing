@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Event Ticketing</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css">
   <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -13,22 +14,31 @@
 
   <div ng-view></div>
 
+  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
   <script src="app.js"></script>
   <script src="config.js"></script>
+  <script src="shared/filters/pretty-date.js"></script>
+  <script src="shared/forms/base.js"></script>
   <script src="shared/services/builder.js"></script>
   <script src="shared/services/user.js"></script>
   <script src="shared/router.js"></script>
   <script src="base/controllers/header.js"></script>
   <script src="base/controllers/login.js"></script>
   <script src="base/directives.js"></script>
+  <script src="event/controllers/list.js"></script>
+  <script src="event/controllers/single.js"></script>
+  <script src="event/controllers/form.js"></script>
+  <script src="event/controllers/manage.js"></script>
   <script src="event/models/event.js"></script>
   <script src="event/models/ticket-type.js"></script>
+  <script src="event/directives.js"></script>
   <script src="event/service.js"></script>
 </body>
 </html>

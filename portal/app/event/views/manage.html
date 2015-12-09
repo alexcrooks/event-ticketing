@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2 col-xs-10 col-xs-push-1" ng-if="isLoaded()">
+    <h1>
+      <span ng-switch="isCreatingNewEvent()">
+        <span ng-switch-when="true">Create Event</span>
+        <span ng-switch-when="false">Edit {{getEventTitle()}}</span>
+      </span>
+    </h1>
+    <div event-form ng-init="setEventForm(form)"></div>
+  </div>
+</div>

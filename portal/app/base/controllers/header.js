@@ -18,6 +18,13 @@
       auth: _.constant(true),
     },
     {
+      path: '/event',
+      label: 'Create Event',
+      auth: function (UserService) {
+        return UserService.isLoggedIn();
+      },
+    },
+    {
       path: '/login',
       label: 'Login',
       auth: function (UserService) {

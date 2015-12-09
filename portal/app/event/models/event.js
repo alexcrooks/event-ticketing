@@ -92,10 +92,27 @@ EventModel = {};
     },
   };
 
+  var serializers = {
+    buildForForm: function () {
+      return {
+        title:       this.title(),
+        description: this.description(),
+        location:    this.location(),
+        doorsAt:     this.doorsAt(),
+        startsAt:    this.startsAt(),
+        endsAt:      this.endsAt(),
+        ticketTypes: _.map(this.ticketTypes(), function (ticketType) {
+          return ticketType.buildForForm();
+        }),
+      };
+    },
+  };
+
   EventModel.prototype = _.extend(
     EventModel.prototype,
     getters,
-    mutators
+    mutators,
+    serializers
   );
 
 })();

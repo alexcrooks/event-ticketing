@@ -5,6 +5,7 @@ App = {};
 
   App.app = angular.module('event-ticketing-portal', [
     'ngRoute',
+    'ngResource',
   ]);
 
   App.app.config(['$routeProvider', function ($routeProvider) {

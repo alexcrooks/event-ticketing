@@ -17,3 +17,12 @@ secrets.
 ## Unit Testing
 
 `make test` will run tests
+
+## Todo
+
+- Implement integration tests
+- Deployment
+- Authentication
+- Roles/permissions
+- Secure CORS configuration
+- JSON format with good validation reporting
